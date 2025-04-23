@@ -44,7 +44,7 @@ All relationships and business rules (e.g. visa requirements, crew scheduling li
 
 1. **Clone the repo**  
    ```bash
-   git [clone https://github.com/Aerys12/AirportOpsDB.git](https://github.com/Aerys12/Airline-DB-Schema-Design.git)
+   git clone https://github.com/Aerys12/Airline-DB-Schema-Design.git
 2. **Intialize your database**
    ```bash
    psql -f schema.sql
