@@ -2,7 +2,7 @@
 A comprehensive PostgreSQL schema for modelling and managing every aspect of commercial flight operations
 ## 🚀 Project Overview
 
-AirportOpsDB is designed to power back-end systems for airlines, airports, and travel platforms. It captures:
+AirportA3 is designed to power back-end systems for airlines, airports, and travel platforms. It captures:
 
 - **Global airport network**  
   Countries → Airports → Gates  
