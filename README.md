@@ -45,6 +45,49 @@ All relationships and business rules (e.g. visa requirements, crew scheduling li
 1. **Clone the repo**  
    ```bash
    git clone https://github.com/Aerys12/AirportOpsDB.git
-   cd AirportOpsDB```
+   cd AirportOpsDB
 2. **Intialize your database**
-   
+   ```bash
+   psql -f schema.sql
+3. ** Seed sample data (optional)
+   ```bash
+   psql -f data.sql
+4. **Intergrate with your application
+   Connect via your preferrred ORM or query runner
+
+📈 Features & Benefits
+-Strict data integrity via ON DELETE rules and CHECK constraints
+-Highly normalized design to avoid redundancy
+-Built-in business logic (crew shift limits, visa checks)
+-Extensible: easily add new entities (e.g., cargo, loyalty tiers)
+-Modular scheduling thanks to FlightTimes templates
+
+## 🛠️ Example Queries
+
+Each of the example operations is provided in its own SQL script file in the project root:
+
+- `q1.sql` – **Total Passengers per Airport (2023)**: Returns each airport’s name alongside the number of **distinct** passengers who departed or arrived there in 2023.
+- `q2.sql` – **Top Travelers per Route (2023)**: Identifies, for every route, the passenger(s) who flew that route most often in 2023.
+- `q3.sql` – **Low-Visa International Routes**: Finds international routes where the average number of visa-requiring passengers per flight is >0 but <25% of the overall international-route average.
+- `q4.sql` – **Frequent Crew–Plane Assignments**: Lists airline crew members (flight or ground) who worked on the same plane **at least 10 times** during 2023.
+
+### Running the Scripts
+
+**From your shell:**
+```bash
+psql -U <username> -d <database> -f q1.sql
+psql -U <username> -d <database> -f q2.sql
+# …and so on for q3.sql, q4.sql
+```
+
+**Inside a `psql` session:**
+```sql
+SET search_path TO A3Airport;
+\i q1.sql   -- load and run q1.sql
+\i q2.sql   -- load and run q2.sql
+-- etc.
+```
+
+Replace `<username>` and `<database>` with your credentials. Each script assumes the `A3Airport` schema is active.
+
+
